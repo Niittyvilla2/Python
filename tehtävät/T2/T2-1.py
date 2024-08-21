@@ -1,2 +1,3 @@
-nimi = input("Mikä on nimesi? ")
+
+nimi = input("Mikä on nimesi?\n")
 print ("Terve, " + nimi + "!")
