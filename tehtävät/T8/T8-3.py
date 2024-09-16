@@ -10,14 +10,15 @@ def getGPS(icao):
     sijainti = (float(sijainti[0][1]), float(sijainti[0][2]))
     return sijainti
 
-yhteys = mysql.connector.connect(
-         host='localhost',
-         port= 3306,
-         database='flight_game',
-         user='leksa',
-         password='tapani',
-         autocommit=True
-         )
+def yhteys():
+    return mysql.connector.connect(
+        host = "localhost",
+        database = "flight_game",
+        user = "root",
+        password = "VerySecurePassw0rd",
+        autocommit = True,
+        collation = "utf8mb4_general_ci"
+    )
 
 icao1 = input("Anna lähtö lentokentän ICAO-koodi: ")
 icao2 = input("Anna saapumis lentokentän ICAO-koodi: ")
