@@ -6,7 +6,6 @@ class Auto:
         self.maxnopus = maxnopeus
         self.nopeus = 0
         self.kuljettumatka = 0
-        self.voittaja = False
 
     def kiihdyta(self, kmh):
         if kmh + self.nopeus > 0 and kmh + self.nopeus < self.maxnopus:
@@ -20,24 +19,29 @@ class Auto:
         if aika > 0:
             matka = aika * self.nopeus
             self.kuljettumatka = self.kuljettumatka + matka
-    
-    def maalitarkastus(self):
-        if self.kuljettumatka >= 10000:
-            maalissa = 0
-            self.voittaja = True
-        return maalissa
 
 
-#Autotttt
-
-
+#Autot
 autot = []
 
 for i in range(10):
-    auto = Auto(f"ABC-")
-#Kilpailu
-maalissa = 0
-while maalissa == 0:
-    #Kiihdytys
-    
+    auto = Auto(f"ABC-{i+1}", random.randint(100, 200))
+    autot.append(auto)
 
+#Kilpailu
+kilpailu = True
+while kilpailu:
+    #Kiihdytys
+    for i in autot:
+        auto.kiihdyta(random.randint(-10, 15))
+    #Matka
+    for i in autot:
+        auto.kulje(1)
+    #Katsotaan voittiko kukaan
+    for i in autot:
+        if auto.kuljettumatka > 10000:
+            kilpailu = False
+
+#Tulokset
+
+print("--Tulokset--")
