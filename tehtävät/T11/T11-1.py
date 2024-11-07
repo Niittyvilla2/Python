@@ -1,0 +1,2 @@
+class Julkaisu:
+    pass

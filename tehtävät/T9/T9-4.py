@@ -45,3 +45,4 @@ while kilpailu:
 #Tulokset
 
 print("--Tulokset--")
+
