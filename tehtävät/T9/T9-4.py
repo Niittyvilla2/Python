@@ -32,17 +32,16 @@ for i in range(10):
 kilpailu = True
 while kilpailu:
     #Kiihdytys
-    for i in autot:
+    for auto in autot:
         auto.kiihdyta(random.randint(-10, 15))
     #Matka
-    for i in autot:
+    for auto in autot:
         auto.kulje(1)
     #Katsotaan voittiko kukaan
-    for i in autot:
+    for auto in autot:
         if auto.kuljettumatka > 10000:
             kilpailu = False
-
-#Tulokset
-
-print("--Tulokset--")
+            for auto in autot:
+                auto = [auto.rekkari, auto.maxnopus, auto.nopeus, auto.kuljettumatka]
+                print(auto)
 
