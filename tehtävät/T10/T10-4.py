@@ -54,8 +54,3 @@ autot = []
 for i in range(10):
     auto = Auto(f"ABC-{i+1}", random.randint(100, 200))
     autot.append(auto)
-
-#Kilpailu
-kilpailu = True
-while kilpailu:
-    pass
