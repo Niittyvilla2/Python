@@ -27,25 +27,25 @@ class Kilpailu:
         self.pituus = pituus
         self.knimi = kNimi
 
-    def tunti_kuluu(self):
+    def tunti_kuluu(self, aika):
         #kiihdytys
         for auto in self.autot:
             auto.kiihdyta(random.randint(-10, 15))
-
         #matka
-        for auto in autot:
-            auto.kulje(1)
+        for auto in self.autot:
+            auto.kulje(aika)
 
     def tulosta_tilanne(self):
-        for auto in autot:
+        for auto in self.autot:
                 auto = [auto.rekkari, auto.maxnopus, auto.nopeus, auto.kuljettumatka]
                 print(auto)
 
-    def kilpailu_ohi(self,):
-        pituus = self.pituus
+    def kilpailu_ohi(self):
         for auto in autot:
             if auto.kuljettumatka > self.pituus:
                 return True
+            else:
+                return False
 
 
 #Autot
@@ -54,3 +54,14 @@ autot = []
 for i in range(10):
     auto = Auto(f"ABC-{i+1}", random.randint(100, 200))
     autot.append(auto)
+
+#Kilpailu
+sr = Kilpailu(8000, "Suuri romuralli", autot)
+print("Suuri romiralli alkaa!\n")
+while sr.kilpailu_ohi() == False:
+    sr.tunti_kuluu(10)
+    sr.kilpailu_ohi()
+    print("\nTämän hetkinen tilanne \n")
+    sr.tulosta_tilanne()
+
+print("\nSuuri romuralli on päättynyt!")
